@@ -1,4 +1,3 @@
-// src/routes/intro/+page.svelte (or wherever this lives in your project structure)
 <script>
   const navLinks = [
     { name: 'Projects', url: '/projects', icon: 'fa-code' },
