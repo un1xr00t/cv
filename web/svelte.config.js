@@ -16,7 +16,7 @@ const config = {
 			strict: false
 		}) : adapterAuto(),
 		paths: {
-			base: process.env.GITHUB_PAGES ? '/cv' : ''
+			base: process.env.GITHUB_PAGES ? '' : ''
 		}
 	}
 };
