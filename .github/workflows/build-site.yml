@@ -180,6 +180,7 @@ jobs:
           publish_dir: ./website/
           user_name: 'un1xr00t'
           user_email: 'whthomas22@gmail.com'
+          cname: cv.williamthomas.name
           commit_message: |
             🪁 Deploy website from ${{ github.sha }}
             
