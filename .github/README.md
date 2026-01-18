@@ -1,11 +1,11 @@
-<h1 align="center">Alicia Sykes - CV</h1>
+<h1 align="center">William Thomas - CV</h1>
 <p align="center">
-<a href="https://github.com/Lissy93/cv"><img src="https://i.ibb.co/G4vGDwtD/cv-logo.png?" width="48" /><br /></a>
+<a href="https://github.com/un1xr00t/cv"><br /></a>
 <i>This repo contains the source for my personal CV</i>
 <br />
 <i>A website (Svelte) and PDF (LaTeX) auto-built from jsonresume data</i>
 <br />
-<b>🌐 <a href="https://cv.aliciasykes.com/">cv.aliciasykes.com</a> | 📄 <a href="https://cv.aliciasykes.com/download"><code>Alicia-Sykes-CV.pdf</code></a></b> <br />
+<b>🌐 <a href="https://cv.williamthomas.name/">cv.williamthomas.name</a> | 📄 <a href="https://cv.williamthomas.name/download"><code>William-Thomas-CV.pdf</code></a></b> <br />
 </p>
 
 
@@ -47,7 +47,7 @@ Why? ...Because why spend 30 minutes writing your CV, when you could spend 30 ho
 2. Update resume.json with your own content
 3. Create [a tag](/.github/workflows/tag.yml), or trigger the GH actions workflow
 4. ....and a PDF and website gets magically generated
-5. View the PDF in the [Releases](https://github.com/Lissy93/cv/releases) tab, and the website source in the [`website`](https://github.com/Lissy93/cv/tree/website) branch, or deployed to GitHub Pages (for me, this is [cv.aliciasykes.com](https://cv.aliciasykes.com))
+5. View the PDF in the [Releases](https://github.com/un1xr00t/cv/releases) tab, and the website source in the [`website`](https://github.com/un1xr00t/cv/tree/website) branch, or deployed to GitHub Pages (for me, this is [cv.williamthomas.name](https://cv.williamthomas.name))
 
 ---
 
@@ -207,4 +207,5 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               |     /          |     /     ~-.     ~- _
               |_____|          |_____|         ~ - . _ _~_-_
 -->
+
 
