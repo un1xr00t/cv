@@ -1,17 +1,34 @@
+// web/src/routes/experience/+page.ts
 import yaml from 'js-yaml';
 export const prerender = true;
 import type { PageLoad } from './$types';
 
-const yamlEndpoint = 'https://raw.githubusercontent.com/Lissy93/cv/HEAD/resume.yml';
-// const jsonEndpoint = '/data/additional-data.json';
-const jsonEndpoint = 'https://gist.githubusercontent.com/Lissy93/f3f3ad8c35449043f4e68449a05afd4d/raw/4ad57ecd293f659892d38cdc0e4683df1c67e560/cv-data.json';
+// Updated to point to YOUR repo
+const yamlEndpoint = 'https://raw.githubusercontent.com/un1xr00t/cv/HEAD/resume.yml';
+
+// You can either:
+// 1. Create your own gist with additional job data
+// 2. Or just use the YAML data alone (set jsonEndpoint to null)
+// For now, I'm setting it to fetch from a local JSON file you can create
+const jsonEndpoint = '/data/additional-data.json';
 
 const formatForCompare = (str: string) => {
   if (!str) { return ''; }
   return str.toLowerCase().replace(/[^a-z0-9]/gi, '')
-  };
+};
 
-const mergeJobData = (cvData, websiteData) => {
+const mergeJobData = (cvData: any[], websiteData: any[]) => {
+  // If no website data, just return CV data formatted
+  if (!websiteData || websiteData.length === 0) {
+    return cvData.map(cvJob => ({
+      company: cvJob.name,
+      position: cvJob.position,
+      datesWorked: `${cvJob.startDate} - ${cvJob.endDate || 'Present'}`,
+      highlights: cvJob.highlights,
+      ...cvJob,
+    }));
+  }
+
   const formattedWebsiteData = websiteData.map(job => ({
     ...job,
     formattedCompany: formatForCompare(job.company),
@@ -20,6 +37,7 @@ const mergeJobData = (cvData, websiteData) => {
   const combinedData = cvData.map(cvJob => {
     const formattedCvName = formatForCompare(cvJob.name);
     const matchingJob = formattedWebsiteData.find(webJob => webJob.formattedCompany === formattedCvName);
+
     if (matchingJob) {
       return {
         company: cvJob.name,
@@ -37,16 +55,14 @@ const mergeJobData = (cvData, websiteData) => {
       };
     }
 
-    console.log(cvJob)
     return {
       company: cvJob.name,
-      datesWorked: `${cvJob.startDate} - ${cvJob.endDate}`,
+      datesWorked: `${cvJob.startDate} - ${cvJob.endDate || 'Present'}`,
       ...cvJob,
     };
   });
 
   const combinedCompanyNames = combinedData.map(job => formatForCompare(job.company));
-
   const additionalWebsiteJobs = formattedWebsiteData
     .filter(webJob => !combinedCompanyNames.includes(webJob.formattedCompany))
     .map(webJob => ({
@@ -64,16 +80,26 @@ const mergeJobData = (cvData, websiteData) => {
   return [...combinedData, ...additionalWebsiteJobs];
 };
 
-export const load: PageLoad = async () => {
-  const [yamlResponse, jsonResponse] = await Promise.all([
-    fetch(yamlEndpoint),
-    fetch(jsonEndpoint)
-  ]);
-
+export const load: PageLoad = async ({ fetch }) => {
+  // Fetch YAML from your repo
+  const yamlResponse = await fetch(yamlEndpoint);
   const yamlText = await yamlResponse.text();
-  const cvData = ((yaml.load(yamlText) as any) || {}).work;
-  const websiteData = await jsonResponse.json();
-  const combinedJobData = mergeJobData(cvData, websiteData.workExperience);
+  const cvData = ((yaml.load(yamlText) as any) || {}).work || [];
+
+  // Try to fetch additional JSON data, but don't fail if it doesn't exist
+  let websiteData: any[] = [];
+  try {
+    const jsonResponse = await fetch(jsonEndpoint);
+    if (jsonResponse.ok) {
+      const jsonData = await jsonResponse.json();
+      websiteData = jsonData.workExperience || [];
+    }
+  } catch (e) {
+    // No additional data, that's fine - just use YAML
+    console.log('No additional job data found, using resume.yml only');
+  }
+
+  const combinedJobData = mergeJobData(cvData, websiteData);
 
   return {
     combinedJobData
