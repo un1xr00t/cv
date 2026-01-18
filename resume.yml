@@ -1,7 +1,6 @@
 # resume.yml :) >:)
 # William Thomas - Cybersecurity Analyst
 # JSON Resume format - https://jsonresume.org/
-
 basics:
   name: William Thomas
   label: Cybersecurity Analyst
@@ -27,6 +26,12 @@ basics:
     - network: LinkedIn
       username: william-thomas7
       url: https://www.linkedin.com/in/william-thomas7/
+
+personal-statement: |
+  Driven and detail-oriented Cybersecurity Analyst with a strong foundation in both defensive and offensive security.
+  Experienced in identifying and exploiting system vulnerabilities through platforms like TryHackMe and real-world
+  Capture The Flag events at BSidesPGH. Skilled in deploying and managing security infrastructure, including
+  cloud-hosted SIEM solutions such as Wazuh, Linux hardening, and SSH configuration.
 
 work:
   - name: Meta – Reality Labs
