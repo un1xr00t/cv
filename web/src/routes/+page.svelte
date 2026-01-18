@@ -1,13 +1,12 @@
+<!-- src/routes/+page.svelte -->
 <script lang="ts">
+	import { base } from '$app/paths';
 	import '../styles/resume-main.scss';
 	import { marked } from 'marked';
-
 	export let data: any;
-
 	const makeUrlretty = (url: string) => {
 		return url.replace(/(^\w+:|^)\/\//, '');
 	}
-
 	const formatData = (date: string) => {
 		if (!date.match(/^\d{4}-\d{2}$/)) {
 			return date;
@@ -16,20 +15,16 @@
 		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		return `${months[parseInt(month) - 1]} ${year}`;
 	}
-
 	const mdToHtml = (md: { text: string, source: string }) => {
 		if (!md || !md.text) {
 			return '';
 		}
 		return marked(md.text);
 	}
-
 </script>
-
 <svelte:head>	
 	<title>William Thomas | CV | Home</title>
 </svelte:head>
-
 <div class="resume">
   <!-- Resume head -->
 	<section class="basics">
@@ -40,11 +35,10 @@
 			<p>{data.basics.location.address}</p>
 		</div>
   </section>
-
 	<!-- Personal statement -->
   <section class="personal-statement">
     <p>{data['personal-statement']}</p>
-		<a href="/intro">
+		<a href="{base}/intro">
 			<button class="small-btn">
 				<i class="nav-icon fa-solid fa-address-card"></i>
 				View Full Bio
@@ -52,7 +46,6 @@
 			</button>
 		</a>
   </section>
-
 	{#if data.work && data.work.length > 0}
 		<section class="work">
 			<h2>Experience</h2>
@@ -70,7 +63,7 @@
 					</ul>
 				</div>
 			{/each}
-			<a href="/experience">
+			<a href="{base}/experience">
 				<button class="small-btn">
 					<i class="nav-icon fa-solid fa-briefcase"></i>
 					View All Experience
@@ -79,7 +72,6 @@
 			</a>
 		</section>
 	{/if}
-
 	{#if data.education && data.education.length > 0}
 	<section class="education">
 		<h2>Education</h2>
@@ -92,7 +84,6 @@
     {/each}
   </section>
 	{/if}
-
   <section class="skills">
     <h2>Skills</h2>
 		<ul>
@@ -102,7 +93,7 @@
 			</li>
     {/each}
 		</ul>
-		<a href="/skills">
+		<a href="{base}/skills">
 			<button class="small-btn">
 				<i class="nav-icon fa-solid fa-code"></i>
 				View All Skills
@@ -110,7 +101,6 @@
 			</button>
 		</a>
   </section>
-
   <section class="achievements">
 		<h2>Achievements</h2>
 		<ul>
@@ -125,7 +115,7 @@
 				</li>
 			{/each}
 		</ul>
-		<a href="/achievements">
+		<a href="{base}/achievements">
 			<button class="small-btn">
 				<i class="nav-icon fa-solid fa-star"></i>
 				View All Achievements
@@ -133,7 +123,6 @@
 			</button>
 		</a>
 	</section>
-
 	<section class="achievements">
 		<h2>Awards</h2>
 		<ul>
@@ -148,7 +137,6 @@
 				</li>
 			{/each}
 		</ul>
-
   </section>
 </div>
 <style>
