@@ -2,36 +2,31 @@
   let emailVisible = false;
   const revealEmail = () => {
     emailVisible = true;
-    navigator.clipboard.writeText('hello@aliciasykes.com');
+    navigator.clipboard.writeText('whthomas22@gmail.com');
   }
 </script>
-
 <svelte:head>	
-	<title>Alicia Sykes | CV | Contact</title>
+	<title>William Thomas | CV | Contact</title>
 </svelte:head>
-
 <h1>Contact</h1>
-
 <p>
-  If you're looking for an accomplished full-stack Principal Engineer or Engineering Manager, then I'd love to hear from you!
+  If you're looking for a dedicated Cybersecurity Analyst with hands-on experience in security monitoring, threat detection, and offensive security, I'd love to hear from you!
 </p>
 <p>
   You can get in touch by dropping me an email 
   {#if emailVisible}
-    <a href="mailto:hello@aliciasykes.com">hello@aliciasykes.com</a>
+    <a href="mailto:whthomas22@gmail.com">whthomas22@gmail.com</a>
   {:else}
     <button on:click={revealEmail} class="small-btn no-float" title="Click to show email address, and copy to clipboard">
       Reveal email address
     </button>
   {/if}
   <br>
-  Or for other communication channels,
-  see <a target="_blank" href="https://aliciasykes.com/contact">aliciasykes.com/contact</a>
+  Or connect with me on LinkedIn or GitHub below.
 </p>
 <p>
   Thank you for stopping by, and I really hope to hear from you!
 </p>
-
 <div class="some-text">
   <p>
     You can learn more about me on the <a href="/intro">intro</a> page,
@@ -40,19 +35,14 @@
     A shortened version of my CV in PDF format can be downloaded <a href="/download">here</a>.
   </p>
   <p>
-    Beyond that, I'm on LinkedIn, at <a href="https://www.linkedin.com/in/aliciasykes/">in/aliciasykes</a>
-    and GitHub at <a href="https://github.com/lissy93">@lissy93</a>.
-    A catalog of my recent open source apps can be found at <a href="https://apps.aliciasykes.com">apps.aliciasykes.com</a>
-  </p>
-  <p>
-    To see if I'd be a good fit for your team, you can view my <a href="/ideal-role">ideal role</a>
+    Beyond that, I'm on LinkedIn at <a href="https://www.linkedin.com/in/william-thomas7/">in/william-thomas7</a>
+    and GitHub at <a href="https://github.com/un1xr00t">@un1xr00t</a>.
+    Check out my portfolio at <a href="https://williamthomas.name">williamthomas.name</a>
   </p>
   <p>
     If you've got any questions, or would like me to send over some references, feel free to reach out! :)
   </p>
 </div>
-
-
 <style lang="scss">
 .wrap {
   display: flex;
@@ -71,4 +61,3 @@
   b, a { font-weight: 500; }
 }
 </style>
-
