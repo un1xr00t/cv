@@ -1,5 +1,5 @@
-<!-- src/routes/+layout.svelte -->
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
@@ -30,13 +30,13 @@
 
 	// Display banner if looking for job, within the specified dates. Format date into human readable string
 	const lookingForJobDates = {
-		start: new Date('2025-01-01'),
-		end: new Date('2025-12-31'),
+		start: new Date('2026-01-01'),
+		end: new Date('2026-12-31'),
 	};
 	const currentDate = new Date();
 	const startDateFormatted = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(lookingForJobDates.start);
 	const isSeekingOpportunities = currentDate <= lookingForJobDates.end;
-	const pagesToShowBanner = ['/', '/achievements', '/skills', '/experience'];
+	const pagesToShowBanner = [`${base}/`, `${base}/achievements`, `${base}/skills`, `${base}/experience`];
 
   function handleScroll() {
     if (header && main) {
@@ -71,10 +71,10 @@
 	];
 
 	const navLinks = [
-		{ name: 'Intro', url: '/intro', icon: 'fa-address-card' },
-		{ name: 'Experience', url: '/experience', icon: 'fa-briefcase' },
-		{ name: 'Achievements', url: '/achievements', icon: 'fa-star' },
-		{ name: 'Skills', url: '/skills', icon: 'fa-code' },
+		{ name: 'Intro', url: `${base}/intro`, icon: 'fa-address-card' },
+		{ name: 'Experience', url: `${base}/experience`, icon: 'fa-briefcase' },
+		{ name: 'Achievements', url: `${base}/achievements`, icon: 'fa-star' },
+		{ name: 'Skills', url: `${base}/skills`, icon: 'fa-code' },
 	];
 
 	const headerLinks = [
@@ -87,9 +87,9 @@
 <div class="app">
 	<aside>
 		<div class="aside-inner">
-			<a href="/" class="no-underline"><h1>CV: William Thomas</h1></a>
+			<a href="{base}/" class="no-underline"><h1>CV: William Thomas</h1></a>
 			<h2 class="job-title">Security Analyst</h2>
-			<img class="profile-picture" width="300" src="/profile-picture.png" alt="William Thomas" />
+			<img class="profile-picture" width="300" src="{base}/profile-picture.png" alt="William Thomas" />
 			<ul class="socials">
 				{#each socials as { url, icon, color }}
 					<li style="--hover-color: {color}">
@@ -106,25 +106,25 @@
 							<a class="no-underline" href={url}><i class="nav-icon fa-solid {icon}"></i>{name}</a>
 						</li>
 					{/each}
-					{ #if path !== '/'}
-						<li><a href="/" class="no-underline"><i class="nav-icon fa-solid fa-home"></i>Home</a></li>
+					{#if path !== `${base}/`}
+						<li><a href="{base}/" class="no-underline"><i class="nav-icon fa-solid fa-home"></i>Home</a></li>
 					{/if}
 				</ul>
 			</nav>
-			<a href="/download" class="no-underline">
+			<a href="{base}/download" class="no-underline">
 				<button class="download-btn"><i class="fa-solid fa-file-arrow-down"></i>Download CV</button>
 			</a>
 			<a class="view-code-link" href="https://github.com/un1xr00t/cv" target="_blank" rel="nofollow">Or View CV Source Code on GitHub</a>
 		</div>
 		<div class="aside-bottom">
-			<a class="get-in-touch" href="/contact">
+			<a class="get-in-touch" href="{base}/contact">
 				<i class="fa-solid fa-paper-plane"></i>
 				Send me a Message
 			</a>
 			<br>
 			<small class="license">
 				<a href="https://github.com/un1xr00t/cv">un1xr00t/cv</a>
-				is licensed under <a href="https://github.com/un1xr00t/cv/blob/main/LICENSE">MIT</a>, &copy; <a href="https://williamthomas.name">William Thomas</a> 2025
+				is licensed under <a href="https://github.com/un1xr00t/cv/blob/main/LICENSE">MIT</a>, &copy; <a href="https://williamthomas.name">William Thomas</a> 2026
 			</small>
 		</div>
 	</aside>
@@ -144,11 +144,11 @@
 				<p>
 					<strong>As of {startDateFormatted}, I am actively seeking new opportunities!</strong>
 					<br>
-					Read my <a href="/intro">full bio</a> to learn more about me,
+					Read my <a href="{base}/intro">full bio</a> to learn more about me,
 					and if you think I could be a good fit for your team,
-					please <a href="/contact">get in touch</a>.
+					please <a href="{base}/contact">get in touch</a>.
 				</p>
-				<a href="/ideal-role">
+				<a href="{base}/ideal-role">
 					<button class="small-btn">
 						<i class="fa-solid fa-bullseye-arrow"></i>
 						View Ideal Role
