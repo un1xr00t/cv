@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 % {{ basics.name | latex_escape }} CV - Generated from YAML data
-% Source: https://github.com/Lissy93/cv
+% Source: https://github.com/un1xr00t/cv
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Configuration
@@ -20,7 +20,7 @@
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
 %% Color for highlight
 % Define your custom color if you don't like awesome colors
-\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-skyblue}
 %\definecolor{awesome}{HTML}{CA63A8}
 %% Colors for text
 %\definecolor{darktext}{HTML}{414141}
@@ -49,10 +49,10 @@
     pdftitle   = {CV: {{ basics.name | latex_escape }}},
     pdfauthor  = {{ "{" }}{{ basics.name | latex_escape }}{{ "}" }},
     pdfsubject = {Curriculum Vitae},
-    pdfkeywords= {principal engineer, software engineering, CV, resume, {{ basics.name | latex_escape }}},
+    pdfkeywords= {security engineer, cybersecurity, red teaming, offensive security, CV, resume, {{ basics.name | latex_escape }}},
     pdfcreator = {LaTeX with XeTeX},
     pdfproducer = {XeTeX},
-    pdflang = {en-GB},
+    pdflang = {en-US},
     pdfcreationdate = {D:20120901162042+01'00'},
     pdfmoddate = {{ "{" }}{{ compilation_timestamp }}{{ "}" }},
     pdfdisplaydoctitle = true
@@ -176,7 +176,7 @@
   \setlength{\itemsep}{0mm}
 {%- for proj in projects %}
   \item {\hspace{-5pt}
-    \textbf{ {{ proj.name | latex_escape }} } ({{ proj.stars | latex_escape }} \raisebox{0.5pt}{\scriptsize\faStar}) \href{ {{ proj.url | latex_escape }} }{\scriptsize\color{lightgray}\faLink} \hfill \href{https://github.com/{{ proj.github | latex_escape }}}{\hspace{1pt}\faGithub\ {{ proj.github | latex_escape }}}\\
+    \textbf{ {{ proj.name | latex_escape }} } {% if proj.stars %}({{ proj.stars | latex_escape }} \raisebox{0.5pt}{\scriptsize\faStar}){% endif %} \href{ {{ proj.url | latex_escape }} }{\scriptsize\color{lightgray}\faLink} \hfill \href{https://github.com/{{ proj.github | latex_escape }}}{\hspace{1pt}\faGithub\ {{ proj.github | latex_escape }}}\\
     {{ proj.description | latex_escape }}
   }
 {%- endfor %}
@@ -191,9 +191,9 @@
 \begin{center}
     \tiny\color{lightgray}
     Resume built with LaTeX, view source at
-    \href{https://github.com/lissy93/cv}{ github.com/lissy93/cv }.
+    \href{https://github.com/un1xr00t/cv}{ github.com/un1xr00t/cv }.
     Licensed under MIT (C)
-    \href{https://aliciasykes.com}{ {{ basics.name | latex_escape }} } {\the\year}
+    \href{https://williamthomas.name}{ {{ basics.name | latex_escape }} } {\the\year}
 \end{center}
 \ 
 \end{document}
