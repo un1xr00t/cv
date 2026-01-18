@@ -8,31 +8,29 @@
   const techStack = data.techStack;
   
   const softSkills = [
-  { skill: 'Problem Solving', desc: 'Proven track record of resolving complex technical challenges across diverse industries, delivering scalable and maintainable solutions.' },
-  { skill: 'Visionary Leadership', desc: 'Led teams of up to 40 engineers, driving long-term strategy while ensuring alignment with business goals and technical vision.' },
-  { skill: 'Cross-functional Collaboration', desc: 'Collaborated closely with product managers, designers, and backend teams to ensure seamless integration and project success.' },
-  { skill: 'Agile Mindset & Adaptability', desc: 'Successfully led and contributed to agile development processes, adapting to changing requirements and delivering iterative improvements.' },
-  { skill: 'Technical Mentorship', desc: 'Mentored junior and mid-level engineers, leading upskilling initiatives and fostering growth within development teams.' },
-  { skill: 'Data-driven Decision Making', desc: 'Consistently used analytics and data to inform technical decisions, ensuring solutions are backed by measurable insights.' },
-  { skill: 'Innovation Catalyst', desc: 'Spearheaded the development of cutting-edge solutions, winning over 10 international hackathons and driving forward technical innovation.' },
-  { skill: 'Stakeholder Influence', desc: 'Built strong relationships with key stakeholders, ensuring project buy-in and alignment with both business and technical objectives.' },
-  { skill: 'Enterprise Architecture Thinking', desc: 'Applied enterprise-level architecture principles to design scalable, maintainable systems, ensuring long-term viability.' },
-  { skill: 'Change Management', desc: 'Successfully led teams through major technical transformations, minimizing disruption while optimizing for future growth.' },
-  { skill: 'Customer Focus', desc: 'Designed and delivered customer-centric solutions, always prioritizing user experience and real-world impact.' }
+  { skill: 'Analytical Thinking', desc: 'Strong ability to analyze complex security incidents, identify root causes, and develop effective remediation strategies.' },
+  { skill: 'Problem Solving', desc: 'Proven track record of resolving complex technical challenges across diverse environments, from enterprise IT to field operations.' },
+  { skill: 'Continuous Learning', desc: 'Passionate about staying current with emerging threats, attack techniques, and defensive technologies through hands-on labs and certifications.' },
+  { skill: 'Technical Documentation', desc: 'Experienced in documenting security findings, attack paths, and remediation steps in clear, actionable formats.' },
+  { skill: 'Cross-functional Collaboration', desc: 'Collaborated closely with IT teams, end users, and management to ensure security requirements are met while maintaining operational efficiency.' },
+  { skill: 'Attention to Detail', desc: 'Meticulous approach to security monitoring, log analysis, and vulnerability assessment to catch subtle indicators of compromise.' },
+  { skill: 'Adaptability', desc: 'Successfully adapted to diverse IT environments from oil field operations to cutting-edge AR/VR research facilities.' },
+  { skill: 'Customer Focus', desc: 'Consistently prioritized end-user experience while implementing security controls and resolving technical issues.' },
+  { skill: 'Self-Directed Initiative', desc: 'Built personal security lab environments and tools to develop skills beyond day-to-day work responsibilities.' }
 ];
 
 </script>
 
 <svelte:head>	
-	<title>Alicia Sykes | CV | Skills</title>
+	<title>William Thomas | CV | Skills</title>
 </svelte:head>
 
 <section class="skills-page">
 <h1>Skills</h1>
 <p>
-  Below is a list of technologies that I've worked extensively with, along with links to projects I've build with each.
-  I enjoy staying up-to-date with the latest technologies,
-  so that I'm in the best position to use the optimum tech stack for any given project.
+  Below is a list of technologies that I've worked extensively with, along with links to projects I've built with each.
+  I enjoy staying up-to-date with the latest security tools and techniques,
+  so that I'm in the best position to defend against emerging threats.
 </p>
 
 {#each Object.keys(techStack) as technologyArea}
@@ -48,7 +46,7 @@
             {#each technology.projects as project}
             <li>
               <i class="fa-brands fa-github"></i>
-              <a href="https://github.com/lissy93/{project}" target="_blank" rel="nofollow">
+              <a href="https://github.com/un1xr00t/{project}" target="_blank" rel="nofollow">
                 {project}
               </a>
             </li>
@@ -71,12 +69,12 @@
 
 <div class="note">
   <p>
-    <b>Note</b>: The technology list is not exhaustive, as it doesn't include some technologies I've used professionally at work, or for private clients.
+    <b>Note</b>: The technology list is not exhaustive, as it doesn't include some technologies I've used professionally at work.
     <br><br>
-    For a full-list of programming languages and frameworks I've worked extensivley with, as well as links to code written in each,
-    please reference <a href="https://apps.aliciasykes.com">apps.aliciasykes.com</a>.
+    For more of my security projects and tools, please visit <a href="https://williamthomas.name">williamthomas.name</a> 
+    or check out my <a href="https://github.com/un1xr00t">GitHub</a>.
     <br><br>
-    For the soft skills, I can provide references, or put you in touch with previous colleagues who can vouch for my abilities.
+    For the soft skills, I can provide references or put you in touch with previous colleagues who can vouch for my abilities.
   </p>
 </div>
 
@@ -124,8 +122,7 @@
   }
   .soft-skills {
     list-style: none;
-    // padding-left: 1.5rem;
-     li {
+    li {
       font-size: 0.95rem;
       font-weight: 500;
       margin: 0.25rem 0 0 0;
@@ -146,7 +143,7 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
-     }
+    }
   }
   .note {
     border: 2px solid var(--primary);
