@@ -1,9 +1,9 @@
 <script>
   const navLinks = [
-    { name: 'Projects', url: '/projects', icon: 'fa-code' },
-    { name: 'About', url: '/about', icon: 'fa-user' },
-    { name: 'Blog', url: '/blog', icon: 'fa-pen' },
-    { name: 'Contact', url: '/contact', icon: 'fa-paper-plane' },
+    { name: 'Experience', url: `${base}/experience`, icon: 'fa-briefcase' },
+    { name: 'Achievements', url: `${base}/achievements`, icon: 'fa-star' },
+    { name: 'Skills', url: `${base}/skills`, icon: 'fa-code' },
+    { name: 'Contact', url: `${base}/contact`, icon: 'fa-paper-plane' },
   ];
 
   const tagline = 'Cybersecurity professional focused on red teaming, offensive security, and building tools that break things to understand how they work.';
