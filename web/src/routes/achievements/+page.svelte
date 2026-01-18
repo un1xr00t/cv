@@ -1,187 +1,58 @@
+<!-- web/src/routes/achievements/+page.svelte -->
 <script lang="ts">
 
 import Language from '../../components/Language.svelte';
 
-const stats = [
+const certifications = [
   {
-    stat: '10M downloads on DockerHub',
-    source: 'https://hub.docker.com/u/lissy93',
-  },
-  {
-    stat: 'Top 100 developer on GitHub (out of 150M+ users)',
-    source: 'https://gitstar-ranking.com/Lissy93',
-  },
-  {
-    stat: '10+ wins on global hackathons',
-    source: 'https://notes.aliciasykes.com/p/0s5s3uOtKj',
-  },
-  {
-    stat: 'Top 1% helper on StackOverflow',
-    source: 'https://stackoverflow.com/users/979052/alicia-sykes',
-  },
-  {
-    stat: '1M+ lines of code written',
-    source: 'https://codestats.net/users/alicia',
-  },
-  {
-    stat: '1M+ annual unique users across my websites',
-    source: '',
-  },
-  {
-    stat: '10k+ subscribers to developer blog',
-    source: 'https://dev.to/lissy93',
-  },
-  {
-    stat: '5k+ followers on GitHub, X, Dev, LinkedIn etc',
-    source: 'https://github.com/lissy93',
-  },
-  {
-    stat: '100+ repos I maintain or are a core contributor of',
-    source: 'https://github.com/Lissy93?tab=repositories&q=&type=&language=&sort=stargazers',
-  },
-  {
-    stat: '1000+ repos and open source projects contributed to',
-    source: '',
-  },
-  {
-    stat: 'Ranked num 1 female open source contributor worldwide',
-    source: 'https://gitstar-ranking.com/Lissy93',
-  },
-  // {
-  //   stat: '100k GitHub stars on my personal projects',
-  //   source: 'https://gitstar-ranking.com/Lissy93',
-  // },
-];
-
-const awards = [
-  {
-    award: 'OpenUK Honors List 2025',
-    issuer: 'OpenUK',
-    source: 'https://openuk.uk/honours/',
-  },
-  {
-    award: 'GitHub Accelerator Program',
-    issuer: 'GitHub',
-    source: 'https://accelerator.github.com/',
-  },
-  {
-    award: 'OpenUK Honors List 2024',
-    issuer: 'OpenUK',
-    source: 'https://openuk.uk/community/openuk-honours-lists/2024-honours-list',
-  },
-  {
-    award: 'Best Final Year CompSci Project',
-    issuer: 'British Computer Society, Oxford',
-    source: 'https://oxon.bcs.org/2016/06/27/annual-student-prizes-2016/',
-  },
-];
-
-const hackathonWins = [
-  {
-    line1: 'Won 1st place overall + Network Rail and TFL prizes at Infra-hack, London 2019',
-    line2: 'Used computer vision to identify incidents and determine station status, in real-time.',
-  },
-  {
-    line1: 'Won 1st place overall at StartHack, Switzerland 2019',
-    line2: 'Created Pax, to identify + remove flashes from video footage for photo-sensitive viewers.',
-  },
-  {
-    line1: 'Won Inteligen Buildings Award (KONE) at Hack Junction, Helsinki 2018',
-    line2: 'Build Elevate-to-Awesome, an IoT app to track and gamify taking the stairs',
-  },
-  {
-    line1: 'Won BlockChain Award (SwissCom) at StartHack, Switzerland 2018',
-    line2: 'Created UNwasted, a social food dapp to reduce waste, on the Ethereum network',
-  },
-  {
-    line1: 'Won 1st place overall at StartHack, Switzerland 2016',
-    line2: 'Developed system for real-time sentiment analysis of geographic social media data',
-  },
-  {
-    line1: 'Won 2nd place at AngelHack and HP sponsor prize Winner, London 2015',
-    line2: 'Created SmartDepart, an alarm to wake you up earlier if there are delays on your commute',
-  },
-  {
-    line1: 'Won 2nd place at NBC Universal Comcast hackathon, London 2015',
-    line2: 'Created an intelligent movie recommendation engine, implemented as Twitter bot',
-  },
-  {
-    line1: 'Won 1st place as team at HealthHack, London 2015',
-    line2: 'Build smart watch app for gamifying health tracking',
-  },
-  {
-    line1: 'Won 2nd place at AngelHack London 2014',
-    line2: 'Created Anti-Theft Charge, Android app that prevents theft while your device is charging',
-  },
-  {
-    line1: 'Won 2nd place (and Intelligent Headset main prize), DevLab Live London 2014',
-    line2: 'Made CityExplorer, interactive tour guide using accelerometers to determine line of site',
+    cert: 'CompTIA Security+',
+    issuer: 'CompTIA',
+    source: 'https://www.comptia.org/certifications/security',
   },
 ];
 
 const projects = [
   {
-    name: 'Dashy',
-    description: 'Control panel for self-hosting',
-    tech: 'Vue',
-    logo: 'https://dashy.to/img/dashy.png',
-    stars: '20k',
-    repo: 'lissy93/dashy',
-    web: 'https://dashy.to',
+    name: 'Phantom Printer V2',
+    description: 'Physical red team dropbox built on Raspberry Pi 5 that disguises itself as an HP LaserJet printer. Features persistent C2 via reverse SSH, n8n automation for Discord alerts, auto-reconnaissance with nmap/Responder, MAC spoofing, mDNS advertisement, and multi-level self-destruct capabilities. Zero-touch deployment - just power on and walk away.',
+    tech: 'Bash',
+    logo: 'https://cdn-icons-png.flaticon.com/512/2166/2166823.png',
+    repo: 'un1xr00t/red-teaming-dropbox-v2',
   },
   {
-    name: 'Web-Check',
-    description: 'All-in-one OSINT and security scanner',
-    tech: 'React',
-    logo: 'https://github.com/Lissy93/web-check/blob/master/.github/web-check-logo.png?raw=true',
-    stars: '25k',
-    repo: 'lissy93/web-check',
-    web: 'https://web-check.xyz',
+    name: 'Phantom Dashboard',
+    description: 'Mobile Command & Control iOS app for managing Phantom Printer dropboxes in the field. Built with Flutter and FastAPI. Real-time dropbox monitoring, remote shell execution, credential/hash browsing, and emergency self-destruct trigger. Dark tactical UI with glassmorphism design.',
+    tech: 'Flutter',
+    logo: 'https://cdn-icons-png.flaticon.com/512/5968/5968592.png',
+    repo: 'un1xr00t/phantom-dashboard',
   },
   {
-    name: 'Digital Defense',
-    description: 'Ultimate checklist of online security tips',
-    tech: 'Solid',
-    logo: 'https://i.ibb.co/Rb6P6h6/shield.png',
-    stars: '19k',
-    repo: 'lissy93/personal-security-checklist',
-    web: 'https://digital-defense.io',
+    name: 'T-Pot Honeypot Deployment',
+    description: 'Production honeypot infrastructure using T-Pot - the all-in-one multi-honeypot platform. Captures SSH/Telnet attacks, web exploits, and malware samples. Integrated with Elasticsearch and Kibana for attack visualization and threat intelligence gathering.',
+    tech: 'Docker',
+    logo: 'https://cdn-icons-png.flaticon.com/512/1598/1598196.png',
+    repo: 'un1xr00t/tpot-honeypot-setup',
   },
   {
-    name: 'Awesome Privacy',
-    description: 'Curated list of verified privacy-respecting services',
-    tech: 'Astro',
-    logo: 'https://github.com/Lissy93/awesome-privacy/blob/gh-pages/awesome-privacy.png?raw=true',
-    stars: '8k',
-    repo: 'lissy93/awesome-privacy',
-    web: 'https://awesome-privacy.xyz',
+    name: 'WiFiHarvest',
+    description: 'Android app for passive WiFi reconnaissance. Logs SSID/BSSID with GPS coordinates for wireless mapping and security assessments. Features Mr. Robot themed UI with fsociety mode easter egg (Konami code activated), terminal-style notifications, and CSV export for analysis.',
+    tech: 'Kotlin',
+    logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+    repo: 'un1xr00t/WiFiHarvest',
   },
   {
-    name: 'AdGuardian Term',
-    description: 'Real-time traffic monitoring',
-    tech: 'Rust',
-    logo: 'https://i.ibb.co/25GNT0n/adguardian-banner-4.png',
-    stars: '1k',
-    repo: 'lissy93/AdGuardian-Term',
-    web: 'https://adguardian.as93.net'
+    name: 'Linux Threat Detection Lab',
+    description: 'Cloud-based detection lab simulating real-world threats on Linux using auditd, Falco, and custom alert scripts. Deployed on Linode Ubuntu 22.04. Used for testing detection rules, understanding attacker TTPs, and building defensive playbooks.',
+    tech: 'Bash',
+    logo: 'https://cdn-icons-png.flaticon.com/512/6124/6124995.png',
+    repo: 'un1xr00t/Linux-Threat-Detection-Lab',
   },
   {
-    name: 'Portainer Templates',
-    description: 'Over 500 1-click Docker apps',
-    tech: 'Python',
-    logo: 'https://i.ibb.co/hMymwH0/portainer-templates-small.png',
-    stars: '2k',
-    repo: 'Lissy93/portainer-templates',
-    web: 'https://portainer-templates.as93.net',
-  },
-  {
-    name: 'Domain Locker',
-    description: 'Complete domain name management suite',
-    tech: 'Angular',
-    logo: 'https://domain-locker.com/icons/android-chrome-192x192.png',
-    stars: '300',
-    repo: 'Lissy93/domain-locker',
-    web: 'https://domain-locker.com',
+    name: 'n8n Business Automations',
+    description: 'Custom n8n workflow automations built for businesses. Includes threat intel feed aggregation, Discord/Slack alerting pipelines, automated reporting, and integration workflows connecting security tools to communication platforms.',
+    tech: 'n8n',
+    logo: 'https://n8n.io/n8n-logo.png',
+    repo: 'un1xr00t',
   },
 ];
 
@@ -193,32 +64,16 @@ const normalizeUrl = (url: string) => {
 </script>
 
 <svelte:head>	
-	<title>Alicia Sykes | CV | Achievements</title>
+	<title>William Thomas | CV | Achievements</title>
 </svelte:head>
 
 <h2>Achievements</h2>
 
-<h3>Stats</h3>
-<ul class="stats">
-  {#each stats as {stat, source}}
+<h3>Certifications</h3>
+<ul class="certs">
+  {#each certifications as {cert, issuer, source}}
     <li>
-      {stat}
-      {#if source}
-        <a class="source" href={source} target="_blank" rel="nofollow" title={`Source: ${normalizeUrl(source)}`}>
-          <i class="fa-solid fa-link"></i>
-        </a>
-      {/if}
-    </li>
-  {/each}
-</ul>
-
-<hr>
-
-<h3>Awards</h3>
-<ul class="awards">
-  {#each awards as {award, source}}
-    <li>
-      {award}
+      <strong>{cert}</strong> - {issuer}
       {#if source}
         <a class="source" href={source} target="_blank" rel="nofollow" title={`Source: ${normalizeUrl(source)}`}>
           <i class="fa-solid fa-link"></i>
@@ -235,62 +90,31 @@ const normalizeUrl = (url: string) => {
   {#each projects as project}
     <li>
       <p class="top-line">
-        <img src={project.logo} alt={''} width="20">
+        <img src={project.logo} alt={''} width="20" onerror="this.style.display='none'">
         <strong>
-          <a href={project.web}>{project.name}</a>
+          <a href={`https://github.com/${project.repo}`} target="_blank" rel="nofollow">{project.name}</a>
         </strong>
-        <span class="desc"> 
-          - {project.description}
-          <a
-            class="source"
-            href={`https://github.com/${project.repo}`}
-            target="_blank"
-            rel="nofollow"
-            title={`GitHub: ${project.repo}`}
-          >
-            <i class="fa-solid fa-link"></i>
-          </a>
       </p>
+      <p class="desc">{project.description}</p>
       <span class="project-stats">
         <Language language={project.tech} small={true} />
         |
         <a
-          title={`View ${project.repo.split('/')[1]} on GitHub`}
-          href={`https://github.com/${project.repo}`}>
+          title={`View ${project.name} on GitHub`}
+          href={`https://github.com/${project.repo}`}
+          target="_blank"
+          rel="nofollow">
           <i class="fa-brands fa-github"></i> {project.repo}
         </a>
-        <!-- | 
-        <a title={`View ${project.name}'s homepage`} href={project.web}>
-          <i class="fa-solid fa-globe"></i> {normalizeUrl(project.web)}
-        </a> -->
-        |
-        <span title="GitHub Star Count"><i class="fa-solid fa-star"></i> Star Count: {project.stars}</span>
       </span>
     </li>
   {/each}
 </ul>
 
-
 <p class="projects-more">
-  The above is just to demonstrate my proficiency in the given tech stacks.
-  But I'm very quick to pick up new technologies.
-  You can view my full catalog of apps at <a href="https://apps.aliciasykes.com">apps.aliciasykes.com</a>,
-  or even more of my apps on my <a href="https://github.com/lissy93?tab=repositories&q=&type=&language=&sort=stargazers">GitHub</a>.
-</p> 
-
-<hr>
-
-<h3>Hackathons</h3>
-<ul class="hackathons">
-  {#each hackathonWins as win}
-    <li>
-      <p class="line1">{win.line1}</p>
-      <p class="line2">{win.line2}</p>
-    </li>
-  {/each}
-</ul>
-
-<img src="/assets/Hackathon-win-pictures.png" alt="Hackathon wins" width="100%" class="hackathon-image" />
+  View more of my security tools and projects on my 
+  <a href="https://github.com/un1xr00t?tab=repositories" target="_blank" rel="nofollow">GitHub</a>.
+</p>
 
 <style lang="scss">
   h2 {
@@ -320,16 +144,10 @@ const normalizeUrl = (url: string) => {
       opacity: 1;
     }
   }
-  .hackathons {
-    li p {
-      margin: 0;
-    }
-    .line1 {
-      font-weight: 500;
-    }
-    .line2 {
-      font-style: italic;
-      opacity: 0.65;
+
+  .certs {
+    li {
+      margin: 0.5rem 0;
     }
   }
 
@@ -337,41 +155,51 @@ const normalizeUrl = (url: string) => {
     padding-left: 0.5rem;
     li {
       list-style: none;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      &:last-child {
+        border-bottom: none;
+      }
       .top-line {
         margin: 0;
         display: flex;
         align-items: center;
         gap: 0.5rem;
         flex-wrap: wrap;
-        margin-top: 0.4rem;
-      }
-      strong {
-        font-weight: 500;
-        display: inline-flex;
-        gap: 0.5rem;
-        justify-content: center;
-        align-items: center;
-        a {
-
+        img {
+          width: 24px;
+          height: 24px;
         }
       }
-      i {
-        font-size: 0.8rem;
+      strong {
+        font-weight: 600;
+        font-size: 1.05rem;
+        a {
+          color: var(--primary, #00ccb4);
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
       .desc {
-        font-style: italic;
-        font-weight: 500;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        color: var(--text-color-dim, #666);
       }
       a {
         color: var(--text-color);
         &:hover {
-          color: var(--primary);
+          color: var(--primary, #00ccb4);
         }
       }
       .project-stats {
-        margin-left: 1rem;
         font-size: 0.8rem;
         opacity: 0.8;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         a {
           opacity: 0.8;
         }
@@ -379,14 +207,10 @@ const normalizeUrl = (url: string) => {
     }
   }
 
-  .hackathon-image {
-    margin: 1rem auto 0 auto;
-    max-width: 100%;
-  }
-
   .projects-more {
     opacity: 0.8;
     font-style: italic;
     font-size: 0.8rem;
+    margin-top: 1rem;
   }
 </style>
