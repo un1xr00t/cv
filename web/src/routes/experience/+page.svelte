@@ -1,16 +1,13 @@
+<!-- web/src/routes/experience/+page.svelte -->
 <script lang="ts">
   import Language from '../../components/Language.svelte';
-
   export let data = {};
   const experience = data.combinedJobData;
 </script>
-
 <svelte:head>	
-	<title>Alicia Sykes | CV | Experience</title>
+	<title>William Thomas | CV | Experience</title>
 </svelte:head>
-
 <h1>Experience</h1>
-
 {#each experience as job}
   <div class="job">
     <h2>
@@ -24,7 +21,6 @@
       <span>{job.company}</span>
     </h2>
     <p class="dates">{job.datesWorked}</p>
-
     {#if job.responsibilities}
       <p class="responsibilities">{job.responsibilities}</p>
     {/if}
@@ -37,7 +33,6 @@
         {/each}
       </ul>
     {/if}
-
     {#if job.projects && job.projects.length > 0}
       <h3>{job.projectType}</h3>
       <ul class="projects">
@@ -46,7 +41,6 @@
         {/each}
       </ul>
     {/if}
-
     {#if job.technologies && job.technologies.length > 0}
       <h3>Primary Technologies</h3>
       <ul class="technologies">
@@ -57,7 +51,6 @@
     {/if}
   </div>
 {/each}
-
 <style lang="scss">
   .job {
     padding: 1rem 0;
