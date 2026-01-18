@@ -1,3 +1,4 @@
+<!-- src/routes/+layout.svelte -->
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
@@ -36,7 +37,6 @@
 	const currentDate = new Date();
 	const startDateFormatted = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(lookingForJobDates.start);
 	const isSeekingOpportunities = currentDate <= lookingForJobDates.end;
-	const pagesToShowBanner = [`${base}/`, `${base}/achievements`, `${base}/skills`, `${base}/experience`];
 
   function handleScroll() {
     if (header && main) {
@@ -60,21 +60,23 @@
     }
   });
 	
-	let path;
-	// @ts-ignore
+	let path: string;
 	$: path = $page.url.pathname;
+
+	// Check if current path matches (accounting for base path)
+	$: isOnBannerPage = path === `${base}/` || path === `${base}/achievements` || path === `${base}/skills` || path === `${base}/experience`;
 
 	const socials = [
 		{ name: 'GitHub', url: 'https://github.com/un1xr00t', icon: 'fa-github', color: '#333' },
 		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/william-thomas7/', icon: 'fa-linkedin', color: '#0A66C2' },
-		{ name: 'DEV.to', url: 'https://dev.to/elliotalderson', icon: 'fa-dev', color: '#f04c8a' },
+		{ name: 'DEV.to', url: 'https://dev.to/elliotalderson', icon: 'fa-dev', color: '#01c0f0' },
 	];
 
 	const navLinks = [
-		{ name: 'Intro', url: `${base}/intro`, icon: 'fa-address-card' },
-		{ name: 'Experience', url: `${base}/experience`, icon: 'fa-briefcase' },
-		{ name: 'Achievements', url: `${base}/achievements`, icon: 'fa-star' },
-		{ name: 'Skills', url: `${base}/skills`, icon: 'fa-code' },
+		{ name: 'Intro', url: '/intro', icon: 'fa-address-card' },
+		{ name: 'Experience', url: '/experience', icon: 'fa-briefcase' },
+		{ name: 'Achievements', url: '/achievements', icon: 'fa-star' },
+		{ name: 'Skills', url: '/skills', icon: 'fa-code' },
 	];
 
 	const headerLinks = [
@@ -102,8 +104,8 @@
 			<nav class="cv-pages-nav">
 				<ul>
 					{#each navLinks as { name, url, icon }}
-						<li class:is-active={path === url}>
-							<a class="no-underline" href={url}><i class="nav-icon fa-solid {icon}"></i>{name}</a>
+						<li class:is-active={path === `${base}${url}`}>
+							<a class="no-underline" href="{base}{url}"><i class="nav-icon fa-solid {icon}"></i>{name}</a>
 						</li>
 					{/each}
 					{#if path !== `${base}/`}
@@ -139,7 +141,7 @@
 
 		<main bind:this={main}>
 
-			{#if pagesToShowBanner.includes(path) && isSeekingOpportunities}
+			{#if isOnBannerPage && isSeekingOpportunities}
 			<div class="im-on-the-market">
 				<p>
 					<strong>As of {startDateFormatted}, I am actively seeking new opportunities!</strong>
