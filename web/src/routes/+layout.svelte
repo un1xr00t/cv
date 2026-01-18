@@ -1,3 +1,4 @@
+<!-- src/routes/+layout.svelte -->
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
@@ -29,8 +30,8 @@
 
 	// Display banner if looking for job, within the specified dates. Format date into human readable string
 	const lookingForJobDates = {
-		start: new Date('2024-09-01'),
-		end: new Date('2024-12-31'),
+		start: new Date('2025-01-01'),
+		end: new Date('2025-12-31'),
 	};
 	const currentDate = new Date();
 	const startDateFormatted = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(lookingForJobDates.start);
@@ -64,12 +65,9 @@
 	$: path = $page.url.pathname;
 
 	const socials = [
-		{ name: 'GitHub', url: 'https://github.com/lissy93', icon: 'fa-github', color: '#333' },
-		{ name: 'Twitter', url: 'https://twitter.com/lissy_sykes', icon: 'fa-twitter', color: '#1DA1F2' },
-		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/aliciasykes/', icon: 'fa-linkedin', color: '#0A66C2' },
-		{ name: 'Mastodon', url: 'https://mastodon.social/@lissy93', icon: 'fa-mastodon', color: '#6364FF' },
-		{ name: 'DEV.to', url: 'https://dev.to/lissy93', icon: 'fa-dev', color: '#f04c8a' },
-		{ name: 'StackOverflow', url: 'https://stackoverflow.com/users/979052/alicia-sykes', icon: 'fa-stack-overflow', color: '#F58025' },
+		{ name: 'GitHub', url: 'https://github.com/un1xr00t', icon: 'fa-github', color: '#333' },
+		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/william-thomas7/', icon: 'fa-linkedin', color: '#0A66C2' },
+		{ name: 'DEV.to', url: 'https://dev.to/elliotalderson', icon: 'fa-dev', color: '#f04c8a' },
 	];
 
 	const navLinks = [
@@ -80,18 +78,18 @@
 	];
 
 	const headerLinks = [
-		{ name: 'About', url: 'https://aliciasykes.com/about' },
-		{ name: 'Projects', url: 'https://aliciasykes.com/projects' },
-		{ name: 'Contact', url: 'https://aliciasykes.com/contact' },
+		{ name: 'About', url: 'https://williamthomas.name/about' },
+		{ name: 'Projects', url: 'https://williamthomas.name/projects' },
+		{ name: 'Contact', url: 'https://williamthomas.name/contact' },
 	];
 </script>
 
 <div class="app">
 	<aside>
 		<div class="aside-inner">
-			<a href="/" class="no-underline"><h1>CV: Alicia Sykes</h1></a>
-			<h2 class="job-title">Principal Engineer</h2>
-			<img class="profile-picture" width="300" src="/profile-picture.jpg" alt="Alicia Sykes" />
+			<a href="/" class="no-underline"><h1>CV: William Thomas</h1></a>
+			<h2 class="job-title">Security Engineer</h2>
+			<img class="profile-picture" width="300" src="/profile-picture.jpg" alt="William Thomas" />
 			<ul class="socials">
 				{#each socials as { url, icon, color }}
 					<li style="--hover-color: {color}">
@@ -116,7 +114,7 @@
 			<a href="/download" class="no-underline">
 				<button class="download-btn"><i class="fa-solid fa-file-arrow-down"></i>Download CV</button>
 			</a>
-			<a class="view-code-link" href="https://github.com/lissy93/cv" target="_blank" rel="nofollow">Or View CV Source Code on GitHub</a>
+			<a class="view-code-link" href="https://github.com/un1xr00t/cv" target="_blank" rel="nofollow">Or View CV Source Code on GitHub</a>
 		</div>
 		<div class="aside-bottom">
 			<a class="get-in-touch" href="/contact">
@@ -125,8 +123,8 @@
 			</a>
 			<br>
 			<small class="license">
-				<a href="https://github.com/lissy93/cv">lissy93/cv</a>
-				is licensed under <a href="https://github.com/Lissy93/cv/blob/main/LICENSE">MIT</a>, &copy; <a href="https://aliciasykes.com">Alicia Sykes</a> 2024
+				<a href="https://github.com/un1xr00t/cv">un1xr00t/cv</a>
+				is licensed under <a href="https://github.com/un1xr00t/cv/blob/main/LICENSE">MIT</a>, &copy; <a href="https://williamthomas.name">William Thomas</a> 2025
 			</small>
 		</div>
 	</aside>
