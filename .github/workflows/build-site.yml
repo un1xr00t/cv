@@ -147,7 +147,7 @@ jobs:
     needs: [build-cv, build-website]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.build-website.result == 'success'
     
-    steps:
+  steps:
       - name: Download CV PDF artifact
         if: needs.build-cv.result == 'success'
         uses: actions/download-artifact@v4
