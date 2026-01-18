@@ -89,7 +89,7 @@
 		<div class="aside-inner">
 			<a href="/" class="no-underline"><h1>CV: William Thomas</h1></a>
 			<h2 class="job-title">Security Engineer</h2>
-			<img class="profile-picture" width="300" src="/profile-picture.jpg" alt="William Thomas" />
+			<img class="profile-picture" width="300" src="/profile-picture.png" alt="William Thomas" />
 			<ul class="socials">
 				{#each socials as { url, icon, color }}
 					<li style="--hover-color: {color}">
