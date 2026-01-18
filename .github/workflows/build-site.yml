@@ -147,7 +147,7 @@ jobs:
     needs: [build-cv, build-website]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.build-website.result == 'success'
     
-  steps:
+    steps:
       - name: Download CV PDF artifact
         if: needs.build-cv.result == 'success'
         uses: actions/download-artifact@v4
@@ -173,8 +173,8 @@ jobs:
           fi
       
       - name: Deploy to website branch
-      uses: peaceiris/actions-gh-pages@v4
-      with:
+        uses: peaceiris/actions-gh-pages@v4
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: website
           publish_dir: ./website/
