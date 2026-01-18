@@ -6,7 +6,7 @@ export const prerender = true;
 // src/routes/+page.ts
 import type { PageLoad } from './$types';
 
-const endpoint = 'https://gist.githubusercontent.com/Lissy93/f3f3ad8c35449043f4e68449a05afd4d/raw/4ad57ecd293f659892d38cdc0e4683df1c67e560/cv-data.json';
+const endpoint = 'https://gist.githubusercontent.com/un1xr00t/2b98ea1059e45490bdd72425efb0a824/raw/0d223d793e73d1023037045eeb23d3a1b6cba8fb/cv-data.json';
 
 export const load: PageLoad = async () => {
   const response = await fetch(endpoint);
