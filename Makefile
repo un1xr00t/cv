@@ -5,8 +5,8 @@
 # the source data and template, as well as helpers and prerequisites.          #
 # To get started run `make`, or `make [command]` to run a specific command.    #
 ################################################################################
-# Full source & links to generated assets is at: https://github.com/lissy93/cv #
-# Licensed under the MIT License, ⓒ Alicia Sykes 2024 <aliciasykes.com>       #
+# Full source & links to generated assets is at: https://github.com/un1xr00t/cv #
+# Licensed under the MIT License, ⓒ William Thomas 2026 <williamthomas.name>       #
 ################################################################################
 
 # Specify that the targets are not files
@@ -19,8 +19,8 @@ SCHEMA := schema.json
 RESUME := resume.yml
 TEMPLATE := template.jinja
 OUTPUT_TEX := tex/resume.tex
-OUTPUT_PDF := out/Alicia-Sykes-CV.pdf
-OUTPUT_MD := out/Alicia-Sykes-CV.md
+OUTPUT_PDF := out/William-Thomas-CV.pdf
+OUTPUT_MD := out/William-Thomas-CV.md
 
 # Default target. Install deps, validate, generate, compile, and clean up
 all: install clean validate generate compile markdown
