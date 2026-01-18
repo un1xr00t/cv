@@ -8,7 +8,7 @@
     if (browser) {
       try {
         // Try to download the PDF directly from the website
-        const pdfUrl = '/william-thomas-cv.pdf';
+        const pdfUrl = '/William-Thomas-CV.pdf';
         
         // Check if the PDF exists
         const response = await fetch(pdfUrl, { method: 'HEAD' });
