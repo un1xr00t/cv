@@ -31,7 +31,7 @@ const projects = [
     description: 'Production honeypot infrastructure using T-Pot - the all-in-one multi-honeypot platform. Captures SSH/Telnet attacks, web exploits, and malware samples. Integrated with Elasticsearch and Kibana for attack visualization and threat intelligence gathering.',
     tech: 'Docker',
     logo: 'https://cdn-icons-png.flaticon.com/512/1598/1598196.png',
-    repo: 'un1xr00t/tpot-honeypot-setup',
+    repo: 'un1xr00t/tpot-threat-intel-lab',
   },
   {
     name: 'WiFiHarvest',
