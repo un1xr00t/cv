@@ -1,3 +1,4 @@
+# .github/workflows/build-site.yml
 name: 🪁 Make Site
 
 on:
@@ -171,6 +172,11 @@ jobs:
           else
             echo "⚠️  CV build failed or PDF not found, deploying website without PDF"
           fi
+      
+      - name: Create 404 fallback for SPA routing
+        run: |
+          cp website/index.html website/404.html
+          echo "✅ Created 404.html fallback for SPA routing"
       
       - name: Deploy to website branch
         uses: peaceiris/actions-gh-pages@v4
