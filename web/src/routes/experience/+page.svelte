@@ -67,8 +67,7 @@
       display: flex;
       align-items: flex-start;
       gap: 0.5rem;
-      margin: 1rem 0 0.25rem 0;
-      flex-wrap: wrap;
+      margin: 1rem 0 0 0;
       img {
         width: 2rem;
         background: var(--text-color-dim);
@@ -79,10 +78,9 @@
       margin: 0.5rem 0;
     }
     .dates {
-      font-size: 0.85rem;
-      opacity: 0.7;
-      margin: 0 0 0.5rem 0;
-      font-style: italic;
+      font-size: 0.8rem;;
+      opacity: 0.8;
+      margin: -1rem 0 0 2.5rem;
     }
     h3 {
       font-size: 1rem;
